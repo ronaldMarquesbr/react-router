@@ -1,24 +1,35 @@
-import logo from './logo.svg';
+import Menu from './components/Menu';
+import Home from './components/Home';
+import Aula from './components/Aula'
+import Aulas from './components/Aulas';
+import Sobre from './components/Sobre';
+import NaoExiste from './components/NaoExiste';
+
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Browser router: gerenciador de rotas 
+// Route: componente responsavel por criar as rotas
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <Router>
+
+      <div className="App">
+        <Menu titulo="Marca" items_nav={["Aulas", "Sobre"]}></Menu>
+        <Routes>
+
+          <Route path="*" element={<NaoExiste/>} />
+          <Route path="/" element={<Home/>} />
+          <Route path="/aulas" element={<Aulas />} />
+          <Route path="/aulas/:id" element={<Aula />} />
+          
+          <Route path="/sobre" element={<Sobre/>} />
+          
+
+        </Routes>
+      </div>
+
+    </Router>
   );
 }
 
