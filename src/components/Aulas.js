@@ -1,9 +1,8 @@
 import React from "react";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import data from "./Data"
 
 function Aulas(props){
-
 
     return(
 
