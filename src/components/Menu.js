@@ -1,5 +1,7 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import {Link, Navigate} from 'react-router-dom';
+import Auth from './AuthButton';
 
 function Menu(props){
 
@@ -10,6 +12,8 @@ function Menu(props){
         return convertedItem;
 
     }
+
+    const login = useSelector(state => state);
 
     return(
 
@@ -31,7 +35,7 @@ function Menu(props){
                      
                             if(item === 'Login'){
 
-                                return(<li key={index} className='nav-item mx-1 item-login'><Link to={parselower(item)} className='nav-link'>{item}</Link></li>);
+                                return( <Auth></Auth> )
 
                             } else {
 
